@@ -1,0 +1,61 @@
+-- Criação do Banco de Dados "Empresa"
+CREATE DATABASE Empresa;
+
+-- Utilização do Banco de Dados "Empresa"
+USE Empresa;
+
+-- Criação da Tabela "Departamentos"
+CREATE TABLE Departamentos (
+    IDDepartamento INT PRIMARY KEY AUTO_INCREMENT,
+    NomeDepartamento VARCHAR(50) NOT NULL,
+    SalarioMedio DECIMAL(10, 2)
+);
+
+-- Criação da Tabela "Funcionarios"
+CREATE TABLE Funcionarios (
+    IDFuncionario INT PRIMARY KEY AUTO_INCREMENT,
+    NomeFuncionario VARCHAR(50) NOT NULL,
+    IDDepartamento INT,
+    Salario DECIMAL(10, 2) NOT NULL,
+    FOREIGN KEY (IDDepartamento) REFERENCES Departamentos(IDDepartamento)
+);
+
+-- Criação do Trigger
+DELIMITER //
+CREATE TRIGGER CalculaSalarioMedio
+AFTER INSERT ON Funcionarios
+FOR EACH ROW
+BEGIN
+    DECLARE totalSalario DECIMAL(10, 2);
+    DECLARE totalFuncionarios INT;
+    DECLARE novoSalarioMedio DECIMAL(10, 2);
+    
+    -- Calcula o total do salário do departamento do novo funcionário
+    SELECT SUM(Salario) INTO totalSalario
+    FROM Funcionarios
+    WHERE IDDepartamento = NEW.IDDepartamento;
+    
+    -- Conta o número de funcionários no departamento
+    SELECT COUNT(*) INTO totalFuncionarios
+    FROM Funcionarios
+    WHERE IDDepartamento = NEW.IDDepartamento;
+    
+    -- Calcula o novo salário médio
+    IF totalFuncionarios > 0 THEN
+        SET novoSalarioMedio = totalSalario / totalFuncionarios;
+    ELSE
+        SET novoSalarioMedio = 0;
+    END IF;
+    
+    -- Atualiza a tabela "Departamentos" com o novo salário médio
+    UPDATE Departamentos
+    SET SalarioMedio = novoSalarioMedio
+    WHERE IDDepartamento = NEW.IDDepartamento;
+END;
+//
+DELIMITER ;
+
+-- Exemplo de Inserção de Funcionário
+INSERT INTO Funcionarios (NomeFuncionario, IDDepartamento, Salario) VALUES ('João', 1, 3000.00);
+
+-- Agora, a tabela "Departamentos" deve ser atualizada com o novo salário médio do departamento do João.
