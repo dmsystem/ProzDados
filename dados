@@ -1,0 +1,69 @@
+Passo 1: Criar a Base de Dados
+
+Vamos criar uma base de dados chamada "escola" como exemplo:
+
+sql
+Copy code
+CREATE DATABASE escola;
+Passo 2: Criar Tabelas
+
+Vamos criar duas tabelas: "alunos" e "cursos" na base de dados "escola".
+
+sql
+Copy code
+USE escola;
+
+CREATE TABLE alunos (
+    aluno_id INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(255),
+    idade INT
+);
+
+CREATE TABLE cursos (
+    curso_id INT AUTO_INCREMENT PRIMARY KEY,
+    nome_curso VARCHAR(255),
+    aluno_id INT,
+    FOREIGN KEY (aluno_id) REFERENCES alunos(aluno_id)
+);
+Neste exemplo, a tabela "cursos" possui uma chave estrangeira (aluno_id) que se relaciona com a tabela "alunos".
+
+Passo 3: Inserir Dados
+
+Vamos inserir alguns dados nas tabelas:
+
+sql
+Copy code
+-- Inserir dados na tabela alunos
+INSERT INTO alunos (nome, idade) VALUES
+    ('João', 20),
+    ('Maria', 22),
+    ('Pedro', 21);
+
+-- Inserir dados na tabela cursos
+INSERT INTO cursos (nome_curso, aluno_id) VALUES
+    ('Matemática', 1),
+    ('História', 2),
+    ('Ciências', 3);
+Passo 4: Usar Joins para Consultas
+
+Agora, podemos usar joins para realizar consultas que combinam dados das duas tabelas. Vamos fazer algumas consultas de exemplo:
+
+Selecionar todos os alunos e os cursos que eles estão matriculados:
+sql
+Copy code
+SELECT alunos.nome, cursos.nome_curso
+FROM alunos
+INNER JOIN cursos ON alunos.aluno_id = cursos.aluno_id;
+Selecionar todos os cursos e os alunos que estão matriculados nesses cursos:
+sql
+Copy code
+SELECT cursos.nome_curso, alunos.nome
+FROM cursos
+INNER JOIN alunos ON cursos.aluno_id = alunos.aluno_id;
+Esses são apenas exemplos simples de como criar um banco de dados, criar tabelas, inserir dados e usar joins para consultas. Você pode expandir e personalizar seu banco de dados e consultas de acordo com suas necessidades específicas. Certifique-se de adaptar o código ao seu DBMS específico, já que a sintaxe pode variar um pouco entre os sistemas.
+
+
+
+
+
+Regenerar
