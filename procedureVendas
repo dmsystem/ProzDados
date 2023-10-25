@@ -1,0 +1,26 @@
+-- Crie a procedure
+CREATE PROCEDURE RelatorioVendasDiarias
+AS
+BEGIN
+    -- Crie uma tabela temporária para armazenar o resultado do relatório
+    CREATE TABLE #RelatorioDiario (
+        DataVenda DATE,
+        QuantidadeProdutosComprados INT
+    )
+
+    -- Insira os dados de vendas diárias na tabela temporária
+    INSERT INTO #RelatorioDiario (DataVenda, QuantidadeProdutosComprados)
+    SELECT
+        DataVenda,
+        SUM(Quantidade) AS QuantidadeProdutosComprados
+    FROM
+        TabelaDeVendas -- Substitua pelo nome real da tabela de vendas
+    GROUP BY
+        DataVenda
+
+    -- Selecione o resultado do relatório
+    SELECT * FROM #RelatorioDiario
+
+    -- Exclua a tabela temporária
+    DROP TABLE #RelatorioDiario
+END
