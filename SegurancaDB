@@ -1,0 +1,27 @@
+Para projetar um novo banco de dados com segurança adequada, é importante considerar os pilares fundamentais da segurança de dados. Esses pilares incluem a 
+confidencialidade, integridade, disponibilidade e conformidade. Abaixo, descrevo cada um desses pilares e como eles devem ser aplicados ao projeto do novo banco de dados:
+
+1. Confidencialidade:
+   - A confidencialidade se refere à proteção dos dados contra acesso não autorizado. Para garantir a confidencialidade dos dados em seu novo banco de dados, você pode considerar as seguintes medidas:
+     - Controle de acesso: Implementar um sistema de controle de acesso robusto, garantindo que apenas usuários autorizados tenham permissão para acessar dados sensíveis.
+     - Criptografia: Utilizar criptografia para proteger dados em repouso e em trânsito, garantindo que mesmo que alguém obtenha acesso aos dados, eles não possam ser facilmente lidos.
+     - Monitoramento de atividades: Implementar registros de auditoria para acompanhar quem acessa os dados e quando, permitindo a detecção de atividades suspeitas.
+
+2. Integridade:
+   - A integridade dos dados garante que eles permaneçam precisos e não tenham sido adulterados ou corrompidos. Para garantir a integridade dos dados, considere:
+     - Controle de versão: Implementar um sistema de controle de versão para rastrear e proteger as alterações nos dados.
+     - Restrições de escrita: Limitar o número de usuários e sistemas que podem modificar os dados, garantindo que apenas operações autorizadas possam alterar informações no banco de dados.
+
+3. Disponibilidade:
+   - A disponibilidade diz respeito à capacidade de acessar os dados quando necessário, garantindo que o banco de dados esteja sempre operacional. Para garantir a disponibilidade dos dados:
+     - Implementar redundância: Ter sistemas de backup e replicação para evitar a perda de dados em caso de falhas no sistema principal.
+     - Planejamento de recuperação de desastres: Desenvolver planos de recuperação de desastres para lidar com interrupções graves, como incêndios, inundações ou ataques cibernéticos.
+
+4. Conformidade:
+   - A conformidade com regulamentações e padrões relevantes é crucial para evitar problemas legais e proteger os dados. Para manter a conformidade, você deve:
+     - Conhecer as regulamentações aplicáveis: Identificar as leis e regulamentos relevantes para sua indústria e garantir que o banco de dados atenda a todas as exigências.
+     - Realizar auditorias regulares: Realizar auditorias internas e externas para verificar a conformidade com as políticas e regulamentos de segurança de dados.
+
+Além desses pilares, é importante manter uma mentalidade de segurança contínua, atualizando regularmente suas medidas de 
+segurança à medida que as ameaças e as melhores práticas evoluem. 
+A segurança de dados é um processo em constante evolução e requer um compromisso contínuo para proteger as informações críticas da empresa.
