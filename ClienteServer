@@ -1,0 +1,37 @@
+O Modelo Cliente Servidor
+
+
+2.Modelo Cliente-Servidor
+
+Visão Geral
+A arquitetura cliente servidor é uma arquitetura de aplicação distribuída, ou seja, na rede existem os fornecedores de recursos ou serviços a rede, que são chamados de servidores, e existem os requerentes dos recursos ou serviços, denominados clientes.
+
+O cliente não compartilha nenhum de seus recursos com o servidor, mas no entanto ele solicita alguma função do servidor, sendo ele, o cliente, responsável por iniciar a comunicação com o servidor, enquanto o mesmo aguarda requisições de entrada.
+
+
+
+
+
+3.Requisições e respostas
+
+Problemas do Modelo
+Visto que a capacidade de oferecer serviços ou recursos fica centralizada na figura do servidor, surge um problema, o que fazer quando o número de requisições dos clientes ultrapassa a capacidade computacional do servidor?
+
+Essa pergunta não tem uma resposta de alta eficiência para aplicações em redes de computadores. A sobrecarga de servidores é um problema real apesar de a capacidade dos servidores ter aumentado consideravelmente na última década.
+
+Além do fato de algumas requisições não serem atendidas, pela sobrecarga do servidor, no modelo cliente servidor, ainda há o fato de que o modelo não é robusto, ou seja, se um servidor crítico falha, os requisições já feitas pelos clientes, não poderão ser atendidas.
+
+Esse motivos são a base para a concepção das redes Peer-to-peer.
+
+A concepção das redes P2P
+As redes Par-a-Par, do ingês,Peer-to-peer (sigla P2P),surgem como uma proposta de descentralização do monopólio de processamento funcional. fazendo com que sistemas sirvam a outros sistemas, dando a cada estação as mesmas responsabilidades e capacidades dentro da rede.
+
+Dave Winer da UserLand Software sugere que os sistemas P2P envolvam as seguintes características.
+
+Interface de troca de arquivos seja fora do navegador de Internet.
+Computadores podem servir tanto como servidores como clientes
+Sistemas fáceis de usar e bem integrados.
+O sistema deve incluir ferramentas que ajudam usuários que queiram criar ou adicionar alguma funcionalidade.
+Sistemas que promovam conexão entre usuários
+Sistemas que façam algo novo ou excitante
+Sistemas que atendam a protocolos "cross-network" como SOAP ou XML-RPC
