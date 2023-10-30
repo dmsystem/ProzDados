@@ -1,0 +1,7 @@
+CREATE FUNCTION SomarClientesCadastrados(dataCadastro DATE)
+RETURNS INT
+BEGIN
+    DECLARE totalClientes INT;
+    SET totalClientes = (SELECT COUNT(*) FROM clientes WHERE data_cadastro = dataCadastro);
+    RETURN totalClientes;
+END;
