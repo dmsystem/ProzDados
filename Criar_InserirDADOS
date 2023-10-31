@@ -1,0 +1,18 @@
+-- Criar o banco de dados ESCOLA
+CREATE DATABASE ESCOLA;
+
+-- Usar o banco de dados ESCOLA
+USE ESCOLA;
+
+-- Criar a tabela ALUNO
+CREATE TABLE ALUNO (
+    ID INT PRIMARY KEY AUTO_INCREMENT,
+    nome VARCHAR(255),
+    email VARCHAR(255),
+    endereco VARCHAR(255)
+);
+
+-- Inserir um novo aluno na tabela ALUNO
+INSERT INTO ALUNO (nome, email, endereco)
+VALUES ('Nome do Aluno', 'email@email.com', 'Endereço do Aluno');
+
